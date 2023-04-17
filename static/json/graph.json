@@ -1,93 +1,93 @@
 {
     "nodes": [
         {
-            "degree": 4,
-            "parity": 1,
-            "katz": 0.2858684629141117,
+            "degree": 1,
+            "parity": 0,
+            "katz": 0.22345931296048022,
             "id": 0
-        },
-        {
-            "degree": 4,
-            "parity": 1,
-            "katz": 0.27898782141141265,
-            "id": 1
         },
         {
             "degree": 2,
             "parity": 1,
-            "katz": 0.22665847103942938,
+            "katz": 0.2514397368207589,
+            "id": 1
+        },
+        {
+            "degree": 3,
+            "parity": 0,
+            "katz": 0.27121651165650135,
             "id": 2
         },
         {
             "degree": 3,
             "parity": 0,
-            "katz": 0.24347496281470948,
+            "katz": 0.27672602613544456,
             "id": 3
         },
         {
-            "degree": 1,
-            "parity": 0,
-            "katz": 0.19749477898666803,
+            "degree": 2,
+            "parity": 1,
+            "katz": 0.2516921297177133,
             "id": 4
         },
         {
-            "degree": 6,
-            "parity": 1,
-            "katz": 0.3249633736133139,
+            "degree": 3,
+            "parity": 0,
+            "katz": 0.27942121110130547,
             "id": 5
         },
         {
-            "degree": 1,
+            "degree": 3,
             "parity": 0,
-            "katz": 0.20266918771684836,
+            "katz": 0.27412361673550806,
             "id": 6
         },
         {
-            "degree": 5,
-            "parity": 0,
-            "katz": 0.30139982013355526,
+            "degree": 4,
+            "parity": 1,
+            "katz": 0.29235848507944184,
             "id": 7
         },
         {
             "degree": 1,
             "parity": 0,
-            "katz": 0.20031283414978732,
+            "katz": 0.22557350800366016,
             "id": 8
         },
         {
-            "degree": 2,
-            "parity": 1,
-            "katz": 0.2276347496873223,
+            "degree": 1,
+            "parity": 0,
+            "katz": 0.22375002025021015,
             "id": 9
         },
         {
             "degree": 4,
             "parity": 1,
-            "katz": 0.28871790869660363,
+            "katz": 0.302417613729641,
             "id": 10
         },
         {
-            "degree": 5,
+            "degree": 1,
             "parity": 0,
-            "katz": 0.31661668154533396,
+            "katz": 0.22557350800366016,
             "id": 11
         },
         {
-            "degree": 4,
+            "degree": 2,
             "parity": 1,
-            "katz": 0.27321924244850926,
+            "katz": 0.24860327956556483,
             "id": 12
         },
         {
             "degree": 2,
             "parity": 1,
-            "katz": 0.2270166791128005,
+            "katz": 0.25581525431556174,
             "id": 13
         },
         {
             "degree": 2,
             "parity": 1,
-            "katz": 0.2270166791128005,
+            "katz": 0.25324610047204466,
             "id": 14
         }
     ],
@@ -97,36 +97,24 @@
             "target": 2
         },
         {
-            "source": 0,
-            "target": 5
-        },
-        {
-            "source": 0,
+            "source": 1,
             "target": 10
         },
         {
-            "source": 0,
-            "target": 11
+            "source": 1,
+            "target": 12
         },
         {
-            "source": 1,
-            "target": 2
-        },
-        {
-            "source": 1,
+            "source": 2,
             "target": 3
         },
         {
-            "source": 1,
-            "target": 7
-        },
-        {
-            "source": 1,
-            "target": 11
+            "source": 2,
+            "target": 12
         },
         {
             "source": 3,
-            "target": 13
+            "target": 5
         },
         {
             "source": 3,
@@ -134,10 +122,10 @@
         },
         {
             "source": 4,
-            "target": 12
+            "target": 5
         },
         {
-            "source": 5,
+            "source": 4,
             "target": 6
         },
         {
@@ -145,16 +133,12 @@
             "target": 10
         },
         {
-            "source": 5,
-            "target": 11
+            "source": 6,
+            "target": 9
         },
         {
-            "source": 5,
-            "target": 13
-        },
-        {
-            "source": 5,
-            "target": 14
+            "source": 6,
+            "target": 10
         },
         {
             "source": 7,
@@ -162,27 +146,19 @@
         },
         {
             "source": 7,
-            "target": 9
-        },
-        {
-            "source": 7,
-            "target": 10
-        },
-        {
-            "source": 7,
             "target": 11
         },
         {
-            "source": 9,
-            "target": 12
+            "source": 7,
+            "target": 13
+        },
+        {
+            "source": 7,
+            "target": 14
         },
         {
             "source": 10,
-            "target": 12
-        },
-        {
-            "source": 11,
-            "target": 12
+            "target": 13
         }
     ]
 }

@@ -11,11 +11,18 @@
   <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
   <!-- d3 lib -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
+  <div id = "control" style = "width: 100px; height:100px;">
+    min: <input id = "bc_min" number="number" min="0" max="1">
+    max: <input id = "bc_max" number="number" min="0" max="1">
+    
+  </div>
   <div class = "graph" style = "width: 1600px; height:1600px;">
     <div id="d3-graph"></div>
   </div>
   
   <script src="/static/js/force-zoom-pan-2.js"></script>
+  
 </body>
+
 
 </html>

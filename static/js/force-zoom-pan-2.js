@@ -4,6 +4,27 @@ var elementId = "d3-graph"
 var parentElement = getParentElement();
 var w = parentElement.offsetWidth;
 var h = parentElement.offsetHeight;
+console.log(w, h);
+
+// 获取betweenness centrality值的范围，后序需要高亮处理
+var bc_min = 0;
+var bc_max = 0;
+var controlDiv = document.getElementById("control")
+var button = document.createElement("input")
+button.setAttribute("type", "button")
+button.setAttribute("value", value)
+button.setAttribute("onclick", "highlightRange()")
+console.log(controlDiv, button);
+controlDiv.appendChild(button)
+
+function highlightRange() {
+    // 获取输入的范围
+    bc_min = document.getElementById("bc_min").value;
+    bc_max = document.getElementById("bc_max").value;
+    console.log(bc_min, bc_max);
+    // 高亮这个范围内的点
+
+}
 
 // D3 variables
 var rootSelection;
@@ -205,6 +226,7 @@ function update(dataLinks, dataNodes) {
             sticky: true
         });
     }
+
 
     function onNodeMouseDown(node) {
         d3.event.stopPropagation();
