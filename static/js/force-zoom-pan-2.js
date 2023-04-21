@@ -4,27 +4,21 @@ var elementId = "d3-graph"
 var parentElement = getParentElement();
 var w = parentElement.offsetWidth;
 var h = parentElement.offsetHeight;
-console.log(w, h);
+console.log(w);
 
 // 获取betweenness centrality值的范围，后序需要高亮处理
 var bc_min = 0;
-var bc_max = 0;
-var controlDiv = document.getElementById("control")
-var button = document.createElement("input")
-button.setAttribute("type", "button")
-button.setAttribute("value", value)
-button.setAttribute("onclick", "highlightRange()")
-console.log(controlDiv, button);
-controlDiv.appendChild(button)
+var bc_max = 0.1;
 
-function highlightRange() {
-    // 获取输入的范围
-    bc_min = document.getElementById("bc_min").value;
-    bc_max = document.getElementById("bc_max").value;
-    console.log(bc_min, bc_max);
-    // 高亮这个范围内的点
-
-}
+// // 需要高亮bc_min bc_max范围的点
+// var controlDiv = document.getElementById("control")
+// var button = document.createElement("input")
+// button.setAttribute("type", "button")
+// button.setAttribute("value", "确定")
+// // button.setAttribute("id", "confirmRange")
+// button.setAttribute("onclick", "highlightRange()")
+// console.log(controlDiv, button);
+// controlDiv.appendChild(button)
 
 // D3 variables
 var rootSelection;
@@ -129,20 +123,32 @@ function createForce() {
 }
 
 createForce()
-
+// 记录这个graph
+var Ggraph;
 function createJSON() {
     // uses API route
     d3.json("/data", function (error, graph) {
         if (error) throw error;
         console.log(graph);
-        graph = graph.data;
+        Ggraph = graph.data;
         console.log(graph);
-        update(graph.links, graph.nodes);
+        update(Ggraph.links, Ggraph.nodes);
         applyGlow();
     });
 }
 
 createJSON()
+
+function highlightRange() {
+    // 获取输入的范围
+    bc_min = document.getElementById("bc_min").value;
+    bc_max = document.getElementById("bc_max").value;
+    console.log(bc_min, bc_max);
+    d3.select('svg').selectAll('*').remove();
+    createGSelection()
+    update(Ggraph.links, Ggraph.nodes)
+    applyGlow();
+}
 
 function update(dataLinks, dataNodes) {
     var linkedByIndex = {};
@@ -202,10 +208,10 @@ function update(dataLinks, dataNodes) {
         nodeSelection
             .on("dblclick.zoom", onNodeDoubleClick)
             .on("mouseover", onNodeMouseOver)
-            .on("mousedown", onNodeMouseDown)
-            .on("mouseout", onNodeMouseOut);
+            // .on("mousedown", onNodeMouseDown)
+            // .on("mouseout", onNodeMouseOut);
     }
-
+    
     function onNodeDoubleClick(node) {
         d3.event.stopPropagation();
         var dcx = (window.innerWidth / 2 - node.x * zoom.scale());
@@ -215,6 +221,7 @@ function update(dataLinks, dataNodes) {
     }
 
     function onNodeMouseOver(node) {
+        console.log(node);
         setHighlight(node);
         tippy('svg g g path', {
             animation: 'scale',
@@ -283,7 +290,9 @@ function update(dataLinks, dataNodes) {
                 else return defaultNodeColor;
             })
             .style("stroke-width", 0)
-            .style(towhite, "white");
+            .style(towhite, "white")
+            
+            ;
 
     }
 
@@ -380,6 +389,29 @@ function update(dataLinks, dataNodes) {
             });
         }
     }
+    // 高亮bc_min, bc_max范围内的点
+    function highlightbcRange() {
+        var N = dataNodes.length;
+        for (var i = 0; i < N; i++) {
+            var bc = dataNodes[i].betweenness;
+            if (bc >= bc_min && bc <= bc_max) {
+                var node = dataNodes[i];
+                console.log(node);
+                circleSelection.style("opacity", function (d) {
+                    if (d.betweenness > bc_min && d.betweenness < bc_max) {
+                        return 1
+                    }
+                    else {
+                        return 0.1
+                    }
+                })
+                linkSelection.style("opacity", function (o) {
+                    return 0.1
+                })
+            }
+        }
+    }
+    highlightbcRange();
 
     zoom.on("zoom", zoomFunction)
 

@@ -68,6 +68,7 @@ def get_force_zoom_pan_2():
 def get_data():
     # 这里需要实现自己提供数据
     G = loadData("clubs.mtx", "clubs.attr")
+    # G = loadData("Caltech36.mtx", "Caltech36.attr")
     # print(G)
     graph_dict = graph_to_dict(G)
     # print("graph_dict", graph_dict)
